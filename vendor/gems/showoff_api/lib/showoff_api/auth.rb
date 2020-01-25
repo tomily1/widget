@@ -8,9 +8,9 @@ module ShowoffApi
       @client_secret = @config.client_secret
     end
 
-    def create(login)
+    def login(payload)
       url = '/oauth/token'
-      body = login.merge(auth_credential).merge("grant_type": "password")
+      body = payload.merge(auth_credential).merge("grant_type": "password")
 
       response = ::ShowoffApi.make_request(:post, url, body)
 

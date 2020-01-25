@@ -23,7 +23,7 @@ module ShowoffApi
       ShowoffApi::Response.new(response)
     end
 
-    def widgets(id, term = "")
+    def widgets(token, id, term = "")
       url = "/api/v1/users/#{id}/widgets"
       params = { params: fetch_params(term) }
       headers = {
@@ -54,7 +54,7 @@ module ShowoffApi
         Authorization: "Bearer #{token}"
       }
 
-      response = ::ShowoffApi.make_request(:get, url, body, headers)
+      response = ::ShowoffApi.make_request(:get, url, {}, headers)
 
       ShowoffApi::Response.new(response)
     end
@@ -88,7 +88,7 @@ module ShowoffApi
         "user": payload
       }.merge(auth_credential)
 
-      response = ::ShowoffApi.make_request(:post, url, { params: params }, {})
+      response = ::ShowoffApi.make_request(:post, url, body, {})
 
       ShowoffApi::Response.new(response)
     end
