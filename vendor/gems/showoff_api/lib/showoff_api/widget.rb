@@ -10,14 +10,19 @@ module ShowoffApi
       @client_secret = @config.client_secret
     end
 
-    def fetch(token, term = "", visible = false)
+    def fetch(token = nil, term = "", visible = false)
       url_part = visible ? '/visible' : ''
       url = BASE_URL + url_part
+      headers = {}
       params = {
         term: term
-      }.merge(ShowoffApi.auth_credential)
+      }.merge(::ShowoffApi.auth_credential)
 
-      response = ::ShowoffApi.make_request(:get, url, params)
+      headers.merge({
+        Authorization: "Bearer #{token}"
+      }) unless token.nil?
+
+      response = ::ShowoffApi.make_request(:get, url, params, )
 
       ShowoffApi::Response.new(response)
     end

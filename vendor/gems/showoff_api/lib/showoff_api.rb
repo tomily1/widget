@@ -47,8 +47,8 @@ module ShowoffApi
 
   def self.auth_credential
     {
-      client_id: @client_id,
-      client_secret: @client_secret
+      client_id: @client.client_id,
+      client_secret: @client.client_secret
     }
   end
 end

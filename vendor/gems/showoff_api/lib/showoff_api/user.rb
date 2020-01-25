@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'rest-client'
-require 'json'
-
 module ShowoffApi
   class User
     def initialize(configuration = nil)
