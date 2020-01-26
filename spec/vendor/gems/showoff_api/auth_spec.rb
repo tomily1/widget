@@ -7,7 +7,7 @@ RSpec.describe ShowoffApi::Auth do
     ShowoffApi.configure do |cfg|
       cfg.client_id = 'abcd'
       cfg.client_secret = 'abcd'
-    
+
       cfg.endpoint = 'https://showoff.endpoint'
       cfg.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
     end
@@ -19,11 +19,11 @@ RSpec.describe ShowoffApi::Auth do
 
   def use_fixture(filename)
     expect(RestClient::Request).to receive(:execute)
-    .and_return(File.read(File.join(File.dirname(__FILE__), 'fixtures', filename)))
+      .and_return(File.read(File.join(File.dirname(__FILE__), 'fixtures', filename)))
   end
 
   %i[login register revoke refresh].each do |method|
-    describe "##{method.to_s}" do
+    describe "##{method}" do
       it 'parses a successful response' do
         use_fixture('success.json')
 

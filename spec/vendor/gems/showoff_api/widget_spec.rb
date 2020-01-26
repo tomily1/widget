@@ -7,7 +7,7 @@ RSpec.describe ShowoffApi::Widget do
     ShowoffApi.configure do |cfg|
       cfg.client_id = 'abcd'
       cfg.client_secret = 'abcd'
-    
+
       cfg.endpoint = 'https://showoff.endpoint'
       cfg.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
     end
@@ -19,7 +19,7 @@ RSpec.describe ShowoffApi::Widget do
 
   def use_fixture(filename)
     expect(RestClient::Request).to receive(:execute)
-    .and_return(File.read(File.join(File.dirname(__FILE__), 'fixtures', filename)))
+      .and_return(File.read(File.join(File.dirname(__FILE__), 'fixtures', filename)))
   end
 
   describe '#fetch' do
