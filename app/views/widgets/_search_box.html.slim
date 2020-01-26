@@ -1,0 +1,4 @@
+/! Search form
+= form_tag(root_path, :method => 'get', :class => 'form-inline mb-4', :id => 'wigdet-search') do
+  = text_field_tag(:term, "", placeholder: (params[:term].presence || 'Search for widgets'), class: 'form-control widget-search-box')
+  = submit_tag("Search", class: 'btn widget-search-button')
