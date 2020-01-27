@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     session[:logged_in]
   end
 
+  def authenticated?
+    redirect_to root_path unless logged_in?
+  end
+
   def token
     return nil unless session[:user].present?
     session[:user]["access_token"]

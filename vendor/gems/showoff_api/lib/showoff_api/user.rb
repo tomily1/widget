@@ -10,12 +10,11 @@ module ShowoffApi
 
     def my_widgets(token, term = "")
       url = '/api/v1/users/me/widgets'
-      params = { params: fetch_params(term) }
       headers = {
         Authorization: "Bearer #{token}"
       }
 
-      response = ::ShowoffApi.make_request(:get, url, params, headers)
+      response = ::ShowoffApi.make_request(:get, url, {}, headers, fetch_params(term))
 
       ShowoffApi::Response.new(response)
     end

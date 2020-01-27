@@ -15,7 +15,7 @@ module ShowoffApi
     @client
   end
 
-  def self.make_request(method, url, args = {}, headers = {})
+  def self.make_request(method, url, args = {}, headers = {}, params = {})
     body = args.to_json
     logger = @client.logger
     endpoint = @client.endpoint
@@ -28,6 +28,13 @@ module ShowoffApi
     logger.debug(args) if logger&.debug?
 
     full_url = endpoint + url
+
+    unless params.empty?
+      query = params.to_a.map do |param|
+        "" + param[0].to_s +  "=" + param[1]
+      end.join('&')
+      full_url = full_url + '?' + query
+    end
 
     begin
       rest_response = RestClient::Request.execute(

@@ -16,13 +16,13 @@ module ShowoffApi
       headers = {}
       params = {
         term: term
-      }.merge(::ShowoffApi.auth_credential)
+      }.merge!(::ShowoffApi.auth_credential)
 
-      headers.merge({
+      headers.merge!({
         Authorization: "Bearer #{token}"
-      }) unless token.nil?
+      }) if token.present?
 
-      response = ::ShowoffApi.make_request(:get, url, params, )
+      response = ::ShowoffApi.make_request(:get, url, {}, headers, params)
 
       ShowoffApi::Response.new(response)
     end
