@@ -20,6 +20,8 @@ gem 'rubocop', '~> 0.74'
 gem 'slim'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+gem 'toastr-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
