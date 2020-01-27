@@ -1,7 +1,0 @@
-.row
-  .col-3
-  .col-6
-    = render partial: "widgets/search_box"
-.row.justify-content-center
-  - @visible_widgets.each do |widget|
-    = render partial: "widgets/card", locals: { widget: widget, user: widget["user"] }

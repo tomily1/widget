@@ -1,0 +1,20 @@
+#RegisterModal.modal.fade.modal-auth aria-hidden="true" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h3 Register
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+      .modal-body
+        = form_tag(register_path, :method => 'post', :class => 'form', :id => 'FormRegister', :multipart => true) do
+          .form-group
+            = text_field_tag(:first_name, '', :placeholder => "First Name", :class => 'form-control', :required => true)
+          .form-group
+            = text_field_tag(:last_name, '', :placeholder => "Last Name", :class => 'form-control', :required => true)
+          .form-group
+            = text_field_tag(:username, '', :placeholder => "Email", :class => 'form-control', :required => true)
+          .form-group
+            = password_field_tag(:password, '', :placeholder => "Password", :class => 'form-control', :required => true)
+          .form-group
+            = file_field_tag(:image, :accept => 'image/jpeg')
+          .form-group
+            = submit_tag('Register', class: 'btn widget-red-button')

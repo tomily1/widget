@@ -3,6 +3,13 @@ nav.navbar.justify-content-between.background-red
     a.navbar-brand.text-white href="/"
       | Widgety
     .my-2.my-sm-0 
-      a.text-white.mr-4 href="#" Register
+      - if logged_in?
+        span.text-white.mr-4 Welcome!!
+        = link_to("My Widgets", personal_widgets_path, class: "text-white mr-4")
+        = link_to("Create a Widget", new_personal_widget_path, class: "text-white")
+      - else
+        = link_to("Register", "#RegisterModal", class: "text-white mr-4", "data-toggle" => "modal")
+        = link_to("Login", "#LoginModal", class: "btn background-transparent text-white", "data-toggle" => "modal")
 
-      button.btn.background-transparent.text-white Login
+        = render partial: "layouts/login"
+        = render partial: "layouts/register"
