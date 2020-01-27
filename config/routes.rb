@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'widgets#index'
+  root 'public_widgets#index'
+
+  post '/login', to: 'authentication#create'
+  post '/register', to: 'authentication#register'
+
+  resources :personal_widgets, only: %i(index create)
 end
