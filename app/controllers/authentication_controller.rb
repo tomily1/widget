@@ -19,6 +19,19 @@ class AuthenticationController < ApplicationController
     redirect_to root_path
   end
 
+  def logout
+    response = ShowoffApi::Auth.new.revoke(token)
+
+    if response.code == :success
+      flash[:success] = response.message
+      reset_session
+    else
+      flash[:error] = response.message
+    end
+
+    redirect_to root_path
+  end
+
   def register
     response = ShowoffApi::Auth.new.register(
       first_name: params[:first_name],
