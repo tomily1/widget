@@ -1,6 +1,7 @@
 .card.mr-4.mb-4 style=("width: 18rem;") 
-  img.card-img-top alt=(widget["name"]) src=user["images"]["small_url"]
+  - if display_image
+    img.card-img-top alt=(widget["name"]) src=user["images"]["small_url"]
   .card-body
-    h5.card-title = widget["name"]
+    = link_to("#{user["name"]}", profile_path(user["id"]))
+    h5.mt-3.card-title = widget["name"]
     p.card-text = widget["description"]
-    / a.btn.btn-primary href="#"  Go somewhere

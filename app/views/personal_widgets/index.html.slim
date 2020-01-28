@@ -9,5 +9,5 @@
     h2.mt-5 You currently have no widgets.
   - else
     - @my_widgets.each do |widget|
-      = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"] }
+      = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"], display_image: true }
 = render partial: "personal_widgets/new"

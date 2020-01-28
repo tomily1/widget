@@ -1,0 +1,11 @@
+.profile {
+  &-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-image {
+    width: 40% !important;
+  }
+}

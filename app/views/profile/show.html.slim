@@ -1,0 +1,18 @@
+- if @widgets.count == 0
+  h3 User does not exist
+- else
+  - user = @widgets.first["user"]
+  .card
+    .row.profile
+      .col-5
+        img.card-img-top.profile-image alt=(user["name"]) src=user["images"]["small_url"]
+      .col-5.profile-details
+        h5 = user["name"]
+        p.font-italic = user["email"]
+  
+  h4.mt-5 #{user["name"]}'s Widgets
+  .row.mt-5
+    - @widgets.each do |widget|
+      = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"], display_image: false }
+  
+

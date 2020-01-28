@@ -4,4 +4,4 @@
     = render partial: "layouts/widgets/search_box"
 .row.justify-content-center
   - @visible_widgets.each do |widget|
-    = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"] }
+    = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"], display_image: true }

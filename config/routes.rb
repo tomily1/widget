@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/register', to: 'authentication#register'
 
   resources :personal_widgets, only: %i(index create)
+  resources :profile, only: [:show]
 end
