@@ -53,6 +53,17 @@ class AuthenticationController < ApplicationController
     redirect_to root_path
   end
 
+  def reset_password
+    response = ShowoffApi::User.new.reset_password(email: params[:email])
+    if response.code == :success
+      flash[:success] = response.message
+    else
+      flash[:error] = response.message
+    end
+  
+    redirect_to root_path
+  end
+
   private
 
   def image_url

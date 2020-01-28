@@ -7,6 +7,8 @@ ruby '2.6.0'
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'font-awesome-sass', '~> 5.12.0'
+
 gem 'jquery-rails'
 
 gem 'kaminari'
