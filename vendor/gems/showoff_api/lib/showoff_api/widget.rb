@@ -45,6 +45,8 @@ module ShowoffApi
       url = BASE_URL + '/' + id
 
       response = ::ShowoffApi.make_request(:post, url, payload, headers)
+
+      ShowoffApi::Response.new(response)
     end
 
     def destroy(token, id)
@@ -55,6 +57,8 @@ module ShowoffApi
       url = BASE_URL + '/' + id
 
       response = ::ShowoffApi.make_request(:delete, url, {}, headers)
+
+      ShowoffApi::Response.new(response)
     end
   end
 end

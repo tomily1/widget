@@ -1,4 +1,8 @@
-.card.mr-4.mb-4 style=("width: 18rem;") 
+.card.mr-4.mb-4 style=("width: 18rem;")
+  - if widget['owner']
+    .text-right
+      = link_to personal_widget_path(widget["id"]), :method => :delete,  :'data-confirm'=>'Are you sure?' do
+        = icon('fas', 'trash', class: 'icon-red')
   - if display_image
     img.card-img-top alt=(widget["name"]) src=user["images"]["small_url"]
   .card-body

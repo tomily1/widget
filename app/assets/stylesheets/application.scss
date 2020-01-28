@@ -14,7 +14,8 @@
  *= require_tree .
  *= require_self
  */
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 
 .background {
@@ -34,4 +35,14 @@
 
 .card {
   padding: 5px;
+}
+
+.icon {
+  &-red {
+    color: #ce2700;
+  }
+
+  &-black {
+    color: #000;
+  }
 }
