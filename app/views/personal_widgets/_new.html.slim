@@ -7,10 +7,13 @@
       .modal-body
         = form_tag(personal_widgets_path, :method => 'post', :class => 'form', :id => 'create-widget') do
           .form-group
+            = label_tag(:name)
             = text_field_tag(:name, '', :placeholder => "Name", :class => 'form-control', :required => true)
           .form-group
+            = label_tag(:description)
             = text_area_tag(:description, '', :placeholder => "Description", :class => 'form-control', :required => true)
           .form-group
+            = label_tag(:kind)
             = select_tag(:kind, options_for_select(@kind, @kind.first), :class => 'form-control', :required => true)
           .form-group
             = submit_tag('Create Widget', class: 'btn widget-red-button')
