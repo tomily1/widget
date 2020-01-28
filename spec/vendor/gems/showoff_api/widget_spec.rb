@@ -44,7 +44,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a successful response' do
       use_fixture('success.json')
 
-      result = client.fetch('124abc', {})
+      result = client.fetch('124abc')
 
       expect(result.code).to eq :success
     end
@@ -52,7 +52,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a failed response' do
       use_fixture('failure.json')
 
-      result = client.fetch('124abc', {})
+      result = client.fetch('124abc')
 
       expect(result.code).to eq :fail
     end
@@ -62,7 +62,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a successful response' do
       use_fixture('success.json')
 
-      result = client.fetch('124abc', 1, {})
+      result = client.fetch('124abc')
 
       expect(result.code).to eq :success
     end
@@ -70,7 +70,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a failed response' do
       use_fixture('failure.json')
 
-      result = client.fetch('124abc', 2, {})
+      result = client.fetch('124abc', "hello")
 
       expect(result.code).to eq :fail
     end
@@ -80,7 +80,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a successful response' do
       use_fixture('success.json')
 
-      result = client.fetch('124abc', 1)
+      result = client.fetch('124abc')
 
       expect(result.code).to eq :success
     end
@@ -88,7 +88,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a failed response' do
       use_fixture('failure.json')
 
-      result = client.fetch('124abc', 2)
+      result = client.fetch('124abc')
 
       expect(result.code).to eq :fail
     end
