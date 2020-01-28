@@ -43,9 +43,10 @@ module ShowoffApi
         payload: body,
         headers: http_headers
       )
-    rescue RestClient::ExceptionWithResponse => e
-      logger.debug(e.response) if logger&.debug?
-      rest_response = e.response
+    
+    rescue RestClient::ExceptionWithResponse, SocketError, Errno::ECONNREFUSED => e
+      logger.debug(e) if logger&.debug?
+      rest_response = { code: 999, message: 'Server error', data: [] }.to_json
     end
     logger.debug(rest_response) if logger&.debug?
 
