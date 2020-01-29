@@ -12,6 +12,9 @@ class PersonalWidgetsController < ApplicationController
     redirect_to_path(response)
   end
 
+  def update
+  end
+
   def destroy
     response = ShowoffApi::Widget.new.destroy(token, params[:id])
     redirect_to_path(response)

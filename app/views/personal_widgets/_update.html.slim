@@ -1,0 +1,19 @@
+.modal.fade.modal-auth id="#update-widget-modal-#{widget['id']}" aria-hidden="true" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h3 Update Widget
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+      .modal-body
+        = form_tag(personal_widget_path(widget['id']), :method => :patch, :class => 'form', :id => "update-widget-#{widget['id']}") do
+          .form-group
+            = label_tag(:name)
+            = text_field_tag(:name, widget['name'], :placeholder => "Name", :class => 'form-control', :id => "name-#{widget['id']}", :required => true)
+          .form-group
+            = label_tag(:description)
+            = text_area_tag(:description, widget['description'], :placeholder => "Description", :class => 'form-control', :id => "description-#{widget['id']}", :required => true)
+          .form-group
+            = label_tag(:kind)
+            = select_tag(:kind, options_for_select(@kind, widget['kind']), :class => 'form-control', :id => "kind-#{widget['id']}", :required => true)
+          .form-group
+            = submit_tag('Update Widget', class: 'btn widget-red-button')

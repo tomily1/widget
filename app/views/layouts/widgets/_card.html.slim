@@ -1,11 +1,19 @@
 .card.mr-4.mb-4 style=("width: 18rem;")
   - if widget['owner']
-    .text-right
-      = link_to personal_widget_path(widget["id"]), :method => :delete,  :'data-confirm'=>'Are you sure?' do
-        = icon('fas', 'trash', class: 'icon-red')
+    .row
+      .col-6
+        .mr-2
+          / = link_to("", "#", data: { target: "#update-widget-modal-#{widget['id']}", toggle: "modal" })do
+          /   = icon('fas', 'edit')
+      .col-6
+        .ml-2.text-right
+          = link_to personal_widget_path(widget["id"]), :method => :delete,  :'data-confirm'=>'Are you sure?' do
+            = icon('fas', 'trash', class: 'icon-red')
   - if display_image
     img.card-img-top alt=(widget["name"]) src=user["images"]["small_url"]
   .card-body
     = link_to("#{user["name"]}", profile_path(user["id"]))
     h5.mt-3.card-title = widget["name"]
     p.card-text = widget["description"]
+- if widget['owner']
+  = render partial: "personal_widgets/update", locals: { widget: widget }
