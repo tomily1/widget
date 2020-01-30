@@ -1,0 +1,12 @@
+language: ruby
+bundler_args: '--without development exclude_travis'
+cache: bundler
+dist: trusty
+rvm:
+  - 2.3.4
+matrix:
+  fast_finish: true
+script:
+  - bundle exec rubocop -c .rubocop.yml --fail-level C
+  - bundle exec rspec
+sudo: false
