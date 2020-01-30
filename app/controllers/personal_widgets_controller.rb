@@ -4,7 +4,9 @@ class PersonalWidgetsController < ApplicationController
   before_action :authenticated?
   before_action :fetch_widgets, only: %i[index edit]
 
-  def index; end
+  def index
+    @my_widgets = Kaminari.paginate_array(@my_widgets).page(params[:page]).per(9)
+  end
 
   def create
     response = ShowoffApi::Widget.new.create(token, widget: widget_params)

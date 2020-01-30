@@ -8,3 +8,4 @@ h3.text-center.mb-5 My Widgets
   - else
     - @my_widgets.each do |widget|
       = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"], display_image: false }
+= paginate @my_widgets
