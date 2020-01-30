@@ -2,8 +2,6 @@
 
 Rails application which wraps ShowOff's API and allows users to manage and view widgets.
 
-
-
 ### Requirements
 1. Ruby version 2.6.0
 2. Rails 5.2
@@ -30,9 +28,7 @@ Rails application which wraps ShowOff's API and allows users to manage and view 
 
 ### Live Demonstration
 
-This app is available and hosted on Heroku and it is available here.
-
-
+This app is available and hosted on Heroku and it is available here https://showoff-widget.herokuapp.com.
 
 ## Approach
 
