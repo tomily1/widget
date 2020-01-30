@@ -36,7 +36,7 @@ This app is available and hosted on Heroku and it is available here.
 
 ## Approach
 
-After reading the requirements carefully, I created a api wrapper in form of a gem in `vendor/gems` folder which contains all the endpoints in the api documentation. To get in first hand how this API works, follow the steps:
+After reading the requirements carefully, I created a api wrapper in form of a gem in `vendor/gems` folder which contains all the hosts in the api documentation. To get in first hand how this API works, follow the steps:
 
 1. cd into `vendor/gems/showoff_api`.
 2. copy the `client_id` and `client_secret` in the config in `.pryrc` file.
@@ -51,7 +51,7 @@ After reading the requirements carefully, I created a api wrapper in form of a g
     c.client_id = '<client_id>'
     c.client_secret = '<client_secret>'
 
-    c.endpoint = 'host'
+    c.host = 'host'
     c.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
   end
 ```

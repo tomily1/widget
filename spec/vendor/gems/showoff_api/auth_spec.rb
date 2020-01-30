@@ -8,7 +8,7 @@ RSpec.describe ShowoffApi::Auth do
       cfg.client_id = 'abcd'
       cfg.client_secret = 'abcd'
 
-      cfg.endpoint = 'https://showoff.endpoint'
+      cfg.host = 'https://showoff.host'
       cfg.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
     end
   end

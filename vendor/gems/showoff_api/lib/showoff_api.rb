@@ -18,7 +18,7 @@ module ShowoffApi
   def self.make_request(method, url, args = {}, headers = {}, params = {})
     body = args.to_json
     logger = @client.logger
-    endpoint = @client.endpoint
+    host = @client.host
 
     http_headers = {
       content_type: :json
@@ -27,7 +27,7 @@ module ShowoffApi
     logger.debug(http_headers) if logger&.debug?
     logger.debug(args) if logger&.debug?
 
-    full_url = endpoint + url
+    full_url = host + url
 
     unless params.empty?
       query = params.to_a.map do |param|

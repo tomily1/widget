@@ -3,7 +3,7 @@
 module ShowoffApi
   # Configurator for showoff client
   class Configuration
-    attr_accessor :client_id, :client_secret, :endpoint, :logger
+    attr_accessor :client_id, :client_secret, :host, :logger
 
     def initialize
       yield self if block_given?
