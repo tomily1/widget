@@ -1,6 +1,6 @@
 # Widget App
 
-Rails application which wraps show off API and allows users to manage and view widgets.
+Rails application which wraps ShowOff's API and allows users to manage and view widgets.
 
 
 

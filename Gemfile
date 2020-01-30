@@ -20,8 +20,8 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rubocop', '~> 0.74'
 
 gem 'slim'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use pg as the database for Active Record
+gem 'pg'
 
 gem 'toastr-rails'
 # Use Puma as the app server
