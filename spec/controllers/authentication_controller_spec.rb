@@ -15,18 +15,18 @@ RSpec.describe AuthenticationController do
     allow(showoff_double).to receive(:code)
       .and_return(:success)
     allow(showoff_double).to receive(:data)
-      .and_return({ 'token' => '1234' })
-    end
-    
-    describe '#create' do
-      before do
+      .and_return('token' => '1234')
+  end
+
+  describe '#create' do
+    before do
       allow(showoff_double).to receive(:login)
         .and_return(showoff_double)
     end
 
     it 'calls #login in ShowoffApi::Auth and redirects' do
       expect(showoff_double).to receive(:login)
-      post :create, params: { 
+      post :create, params: {
         username: 'test@gmail.com',
         password: 'password'
       }
@@ -55,9 +55,9 @@ RSpec.describe AuthenticationController do
         .and_return('Base64:image;')
     end
 
-    it 'calls #revoke in ShowoffApi::Auth and redirects' do
+    it 'calls #register in ShowoffApi::Auth and redirects' do
       expect(showoff_double).to receive(:register)
-      post :register, params: { 
+      post :register, params: {
         first_name: 'first',
         last_name: 'last',
         email: 'test@test.com',
@@ -74,7 +74,7 @@ RSpec.describe AuthenticationController do
         .and_return(showoff_double)
     end
 
-    it 'calls #revoke in ShowoffApi::Auth and redirects' do
+    it 'calls #reset_password in ShowoffApi::User and redirects' do
       expect(showoff_double).to receive(:reset_password)
       post :reset_password, params: { email: 'test@test.co' }
       expect(response.status).to eq(302)
