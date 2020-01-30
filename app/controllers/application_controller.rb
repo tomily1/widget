@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     %w[visible hidden]
   end
 
+  def flash_message(response)
+    flash[response.code] = response.message
+  end
+
   def authenticated?
     redirect_to root_path unless logged_in?
   end

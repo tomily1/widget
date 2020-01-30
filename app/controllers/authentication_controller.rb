@@ -15,14 +15,9 @@ class AuthenticationController < ApplicationController
 
   def logout
     response = ShowoffApi::Auth.new.revoke(token)
+    reset_session if response.code == :success
 
-    if response.code == :success
-      flash[:success] = response.message
-      reset_session
-    else
-      flash[:error] = response.message
-    end
-
+    flash_message(response)
     redirect_to root_path
   end
 
@@ -41,12 +36,8 @@ class AuthenticationController < ApplicationController
 
   def reset_password
     response = ShowoffApi::User.new.reset_password(email: params[:email])
-    if response.code == :success
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
-    end
 
+    flash_message(response)
     redirect_to root_path
   end
 
@@ -57,10 +48,9 @@ class AuthenticationController < ApplicationController
       token_data = response.data['token']
       session[:user] = token_data
       session[:logged_in] = true
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
     end
+
+    flash_message(response)
   end
 
   def image_url

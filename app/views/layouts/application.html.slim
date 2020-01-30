@@ -16,7 +16,7 @@ javascript:
   $('document').ready(function (){
     if ("#{flash[:success]}" !== "") {
       toastr.success("#{flash[:success]}")
-    } else if ("#{flash[:error]}" !== "") {
-      toastr.error("#{flash[:error]}")
+    } else if ("#{flash[:fail]}" !== "") {
+      toastr.error("#{flash[:fail]}")
     }
   })

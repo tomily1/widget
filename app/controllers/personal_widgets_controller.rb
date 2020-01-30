@@ -24,7 +24,7 @@ class PersonalWidgetsController < ApplicationController
     if response.code == :success
       redirect_to_path(response)
     else
-      flash[:error] = response.message
+      flash_message(response)
       redirect_to edit_personal_widget_path(params[:id])
     end
   end
@@ -47,12 +47,7 @@ class PersonalWidgetsController < ApplicationController
   end
 
   def redirect_to_path(response)
-    if response.code == :success
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
-    end
-
+    flash_message(response)
     redirect_to personal_widgets_path
   end
 
