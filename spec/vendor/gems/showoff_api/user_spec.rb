@@ -23,7 +23,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#my_widgets' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.my_widgets('124abc', '')
@@ -31,7 +31,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.my_widgets('wrong_cred', '')
@@ -41,7 +41,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#widgets' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.widgets('124abc', 1, '')
@@ -49,7 +49,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.widgets('wrong_cred', 2, '')
@@ -59,7 +59,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#update' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.update('124abc', {})
@@ -67,7 +67,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.update('wrong_cred', {})
@@ -77,7 +77,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#update' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.show('124abc')
@@ -85,7 +85,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.show('wrong_cred', 1)
@@ -95,7 +95,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#change_password' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.change_password('124abc', {})
@@ -103,7 +103,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.change_password('wrong_cred', {})
@@ -113,7 +113,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#check_email' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.check_email('124abc', 'test@siji.co')
@@ -121,7 +121,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.check_email('wrong_cred', 'siji@test.co')
@@ -131,7 +131,7 @@ RSpec.describe ShowoffApi::Widget do
   end
 
   describe '#reset_password' do
-    it 'parses a successful response' do
+    it 'parse a successful response' do
       use_fixture('success.json')
 
       result = client.reset_password({})
@@ -139,7 +139,7 @@ RSpec.describe ShowoffApi::Widget do
       expect(result.code).to eq :success
     end
 
-    it 'parses a failed response' do
+    it 'parse a failed response' do
       use_fixture('failure.json')
 
       result = client.reset_password({})
