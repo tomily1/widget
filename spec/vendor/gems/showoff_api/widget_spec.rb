@@ -70,7 +70,7 @@ RSpec.describe ShowoffApi::Widget do
     it 'parses a failed response' do
       use_fixture('failure.json')
 
-      result = client.fetch('124abc', "hello")
+      result = client.fetch('124abc', 'hello')
 
       expect(result.code).to eq :fail
     end

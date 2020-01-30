@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PersonalWidgetsController < ApplicationController
   before_action :authenticated?
   before_action :fetch_widgets, only: %i[index edit]
@@ -5,19 +7,19 @@ class PersonalWidgetsController < ApplicationController
   def index; end
 
   def create
-    response = ShowoffApi::Widget.new.create(token, { widget: widget_params })
+    response = ShowoffApi::Widget.new.create(token, widget: widget_params)
     redirect_to_path(response)
   end
 
   def edit
-    @widget = @my_widgets.select do |widget| 
-      widget["id"] == params["id"].to_i
+    @widget = @my_widgets.select do |widget|
+      widget['id'] == params['id'].to_i
     end.first
     redirect_to root_path unless @widget
   end
 
   def update
-    response = ShowoffApi::Widget.new.update(token, params[:id], { widget: widget_params })
+    response = ShowoffApi::Widget.new.update(token, params[:id], widget: widget_params)
 
     if response.code == :success
       redirect_to_path(response)
@@ -35,14 +37,13 @@ class PersonalWidgetsController < ApplicationController
   private
 
   def fetch_widgets
-    @kind = %w[visible hidden]
     term = if action_name == 'edit'
-              ''
+             ''
            else
-              params[:term] || ''
+             params[:term] || ''
            end
     result = ShowoffApi::User.new.my_widgets(token, term)
-    @my_widgets = (result.code == :success) ? result.data['widgets'] : []
+    @my_widgets = result.code == :success ? result.data['widgets'] : []
   end
 
   def redirect_to_path(response)

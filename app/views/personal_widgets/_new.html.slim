@@ -14,6 +14,6 @@
             = text_area_tag(:description, '', :placeholder => "Description", :class => 'form-control', :required => true)
           .form-group
             = label_tag(:kind)
-            = select_tag(:kind, options_for_select(@kind, @kind.first), :class => 'form-control', :required => true)
+            = select_tag(:kind, options_for_select(kinds, kinds.first), :class => 'form-control', :required => true)
           .form-group
             = submit_tag('Create Widget', class: 'btn widget-red-button')

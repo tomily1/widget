@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthenticationController < ApplicationController
   def create
     payload = {
@@ -7,15 +9,7 @@ class AuthenticationController < ApplicationController
 
     response = ShowoffApi::Auth.new.login(payload)
 
-    if response.code == :success
-      token_data = response.data["token"]
-      session[:user] = token_data
-      session[:logged_in] = true
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
-    end
-
+    authenticate_user(response)
     redirect_to root_path
   end
 
@@ -41,15 +35,7 @@ class AuthenticationController < ApplicationController
       image_url: image_url
     )
 
-    if response.code == :success
-      token_data = response.data["token"]
-      session[:user] = token_data
-      session[:logged_in] = true
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
-    end
-
+    authenticate_user(response)
     redirect_to root_path
   end
 
@@ -60,11 +46,22 @@ class AuthenticationController < ApplicationController
     else
       flash[:error] = response.message
     end
-  
+
     redirect_to root_path
   end
 
   private
+
+  def authenticate_user(response)
+    if response.code == :success
+      token_data = response.data['token']
+      session[:user] = token_data
+      session[:logged_in] = true
+      flash[:success] = response.message
+    else
+      flash[:error] = response.message
+    end
+  end
 
   def image_url
     file = params[:image]
