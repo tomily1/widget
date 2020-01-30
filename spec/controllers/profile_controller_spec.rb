@@ -12,9 +12,9 @@ RSpec.describe ProfileController do
       allow(showoff_double).to receive(:widgets)
         .and_return(showoff_double)
       allow(showoff_double).to receive(:data)
-      .and_return('widgets' => [])
+        .and_return('widgets' => [])
     end
-      
+
     context 'failure' do
       it 'calls #widgets in ShowoffApi::User and redirects' do
         allow(showoff_double).to receive(:code)
