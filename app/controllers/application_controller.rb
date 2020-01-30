@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :kinds
+  helper_method :logged_in?, :widget_types
 
   def logged_in?
     session[:logged_in]
   end
 
-  def kinds
+  def widget_types
     %w[visible hidden]
   end
 

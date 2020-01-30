@@ -4,12 +4,12 @@ require 'rails_helper'
 
 RSpec.describe ShowoffApi::Widget do
   let(:configuration) do
-    ShowoffApi.configure do |cfg|
-      cfg.client_id = 'abcd'
-      cfg.client_secret = 'abcd'
+    ShowoffApi.configure do |config|
+      config.client_id = 'abcd'
+      config.client_secret = 'abcd'
 
-      cfg.host = 'https://showoff.host'
-      cfg.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
+      config.host = 'https://showoff.host'
+      config.logger = Logger.new(STDOUT).tap { |l| l.level = :debug }
     end
   end
 
