@@ -1,11 +1,11 @@
-#RegisterModal.modal.fade.modal-auth aria-hidden="true" role="dialog" tabindex="-1" 
+#register-modal.modal.fade.modal-auth aria-hidden="true" role="dialog" tabindex="-1" 
   .modal-dialog
     .modal-content
       .modal-header
         h3 Register
         button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
       .modal-body
-        = form_tag(register_path, :method => 'post', :class => 'form', :id => 'FormRegister', :multipart => true) do
+        = form_tag(register_path, :method => 'post', :class => 'form', :multipart => true) do
           .form-group
             = text_field_tag(:first_name, '', :placeholder => "First Name", :class => 'form-control', :required => true)
           .form-group

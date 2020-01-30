@@ -10,8 +10,8 @@ nav.navbar.justify-content-between.background-red
         = link_to("Logout", logout_path, method: :post, class: "text-white mr-4")
         = render partial: "personal_widgets/new"
       - else
-        = link_to("Register", "#RegisterModal", class: "text-white mr-4", "data-toggle" => "modal")
-        = link_to("Login", "#LoginModal", class: "btn background-transparent text-white", "data-toggle" => "modal")
+        = link_to("Register", "#register-modal", class: "text-white mr-4", "data-toggle" => "modal")
+        = link_to("Login", "#login-modal", class: "btn background-transparent text-white", "data-toggle" => "modal")
 
         = render partial: "layouts/login"
         = render partial: "layouts/register"

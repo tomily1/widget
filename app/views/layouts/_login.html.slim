@@ -1,13 +1,13 @@
-#LoginModal.modal.fade.modal-auth aria-hidden="true" role="dialog" tabindex="-1"
+#login-modal.modal.fade.modal-auth aria-hidden="true" role="dialog" tabindex="-1"
   .modal-dialog
     .modal-content
       .modal-header
         h3 Login
         button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
       .register.text-right.font-italic.mr-2
-        = link_to("Register new user", "#RegisterModal", "data-dismiss"=>"modal", "data-toggle" => "modal") 
+        = link_to("Register new user", "#register-modal", "data-dismiss"=>"modal", "data-toggle" => "modal") 
       .modal-body
-        = form_tag(login_path, :method => 'post', :class => 'form', :id => 'FormLogin') do
+        = form_tag(login_path, :method => 'post', :class => 'form') do
           .form-group
             = text_field_tag(:username, '', :placeholder => "Email", :class => 'form-control', :required => true)
           .form-group
