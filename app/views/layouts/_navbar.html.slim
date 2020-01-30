@@ -6,7 +6,9 @@ nav.navbar.justify-content-between.background-red
       - if logged_in?
         span.text-white.mr-4 Welcome!!
         = link_to("My Widgets", personal_widgets_path, class: "text-white mr-4")
+        = link_to("Create Widget", "#create-widget-modal", class: "text-white mr-4", "data-toggle" => "modal")
         = link_to("Logout", logout_path, method: :post, class: "text-white mr-4")
+        = render partial: "personal_widgets/new"
       - else
         = link_to("Register", "#RegisterModal", class: "text-white mr-4", "data-toggle" => "modal")
         = link_to("Login", "#LoginModal", class: "btn background-transparent text-white", "data-toggle" => "modal")

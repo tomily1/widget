@@ -1,0 +1,12 @@
+h3.text-center.mb-3 Update Widget
+.card
+  = form_tag(personal_widget_path(params[:id]), :method => :patch, :class => 'form', :id => "update-widget-#{params[:id]}") do
+    .form-group
+      = label_tag(:name)
+      = text_field_tag(:name, @widget['name'], :placeholder => "Name", :class => 'form-control', :required => true)
+    .form-group
+      = label_tag(:description)
+      = text_area_tag(:description, @widget['description'], :placeholder => "Description", :class => 'form-control', :required => true)
+
+    .form-group.text-center
+      = submit_tag('Update Widget', class: 'btn widget-red-button')

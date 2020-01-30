@@ -44,7 +44,7 @@ module ShowoffApi
 
       url = BASE_URL + '/' + id
 
-      response = ::ShowoffApi.make_request(:post, url, payload, headers)
+      response = ::ShowoffApi.make_request(:put, url, payload, headers)
 
       ShowoffApi::Response.new(response)
     end
