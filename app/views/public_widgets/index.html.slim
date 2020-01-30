@@ -5,3 +5,4 @@
 .row.justify-content-center
   - @visible_widgets.each do |widget|
     = render partial: "layouts/widgets/card", locals: { widget: widget, user: widget["user"], display_image: true }
+= paginate @visible_widgets

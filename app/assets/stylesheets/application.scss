@@ -46,3 +46,19 @@
     color: #000;
   }
 }
+
+.pagination {
+  justify-content: center;
+
+  .prev {
+    margin-right: 3px;
+  }
+
+  .page {
+    margin-right: 3px;
+  }
+
+  .next {
+    margin-right: 3px;
+  }
+}
