@@ -9,4 +9,6 @@ matrix:
 script:
   - bundle exec rubocop -c .rubocop.yml --fail-level C
   - bundle exec rspec
+before_script:
+  - rails db:create
 sudo: false
