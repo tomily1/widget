@@ -1,4 +1,5 @@
 # Widget App
+[![Build Status](https://travis-ci.com/tomily1/widget.svg?branch=master)](https://travis-ci.com/tomily1/widget)
 
 Rails application which wraps ShowOff's API and allows users to manage and view widgets.
 
