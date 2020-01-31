@@ -23,6 +23,7 @@ Rails application which wraps ShowOff's API and allows users to manage and view 
 2. Open the cloned directory with `cd widget`.
 3. Run `bundle install` to install dependencies
 4. set the showoff_api configuration in `config/initializers/showoff_api.rb`
+N.B. 4 has already been set in the `credentials.yml.enc`. the `master.key` will be sent to you separately
 5. run the app with `rails server`
 6. the app will be available on `localhost:3000`
 
