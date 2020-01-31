@@ -22,7 +22,7 @@ Rails application which wraps ShowOff's API and allows users to manage and view 
 1. clone this respository `git clone git@github.com:tomily1/widget.git`.
 2. Open the cloned directory with `cd widget`.
 3. Run `bundle install` to install dependencies
-4. copy the environment example `cp -v .env.example .env`
+4. set the showoff_api configuration in `config/initializers/showoff_api.rb`
 5. run the app with `rails server`
 6. the app will be available on `localhost:3000`
 
