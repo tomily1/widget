@@ -11,9 +11,9 @@
           .form-group
             = text_field_tag(:last_name, '', :placeholder => "Last Name", :class => 'form-control', :required => true)
           .form-group
-            = text_field_tag(:username, '', :placeholder => "Email", :class => 'form-control', :required => true)
+            = text_field_tag(:username, '', :placeholder => "Email", :class => 'form-control', :id => 'register-username', :required => true)
           .form-group
-            = password_field_tag(:password, '', :placeholder => "Password", :class => 'form-control', :required => true)
+            = password_field_tag(:password, '', :placeholder => "Password", :class => 'form-control', :id => 'register-password', :required => true)
           .form-group
             = file_field_tag(:image, :accept => 'image/jpeg')
           .form-group
