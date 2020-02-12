@@ -54,7 +54,9 @@ class AuthenticationController < ApplicationController
   end
 
   def image_url
-    file = params[:image]
-    Base64.encode64(File.read(file.path))
+    if params[:image].present?
+      file = params[:image]
+      Base64.encode64(File.read(file.path))
+    end
   end
 end
